@@ -43,10 +43,10 @@ def self.students_below_12th_grade
   SQL
   DB[:conn].execute(sql).map {|row| self.new_from_db(row)}
 end
-def self.first_X_students_in_grade_10
+def self.first_X_students_in_grade_10(number)
   sql = <<-SQL
-  SELECT COUNT(grade == 10) FROM students
+  SELECT COUNT(grade) FROM students WHERE grade == 10
   SQL
-  DB[:conn].execute(sql).map {|row| self.new_from_db(row)}
+  DB[:conn].execute(sql, number).map {|row| self.new_from_db(row)}
 end
 end
