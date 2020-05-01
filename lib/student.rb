@@ -13,7 +13,7 @@ end
 def self.drop_table
 DB[:conn].execute("DROP TABLE IF EXISTS students")
 end
-def self.find_by_name
+def self.find_by_name(row)
   sql = <<-SQL
   SELECT*FROM students WHERE name = ? LIMIT 1
   SQL
