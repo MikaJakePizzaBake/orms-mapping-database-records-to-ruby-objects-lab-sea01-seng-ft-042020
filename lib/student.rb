@@ -19,4 +19,10 @@ def self.all
   SQL
   DB[:conn].execute(sql).map {|row| self.new_from_db(row)}
 end
+def save
+  sql = <<-SQL
+  INSERT INTO students (name, grade) VALUES (?, ?)
+  SQL
+  DB[:conn].execute(sql)
+end
 end
