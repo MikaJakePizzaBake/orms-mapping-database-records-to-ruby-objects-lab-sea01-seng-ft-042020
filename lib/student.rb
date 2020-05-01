@@ -7,3 +7,4 @@ def self.new_from_db(row)
   new_student.grade = row[2]
   new_student
 end
+end
